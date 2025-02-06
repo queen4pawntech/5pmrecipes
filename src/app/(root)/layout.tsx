@@ -1,8 +1,33 @@
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
+import { Geist } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import "../globals.css";
+
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
+
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
     return (
-        <div>
-            <h1 className="text-3xl font-bold">ROOT LAYOUT</h1>
+        <html lang="en" className="bg-white">
+            <body
+                className={`flex flex-row w-full h-full ${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+            <div className="bg-orange-500 w-[20%]">
+                Nav
+            </div>
             {children}
-        </div>
+            </body>
+        </html>
     );
 }
+    

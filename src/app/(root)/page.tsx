@@ -1,7 +1,10 @@
+import FoodSearch from "../components/foodSearch";
+
 export default function Root() {
     return (
-        <div>
-            <h1 className="text-3xl font-bold">Root Page</h1>
+        <div className="bg-blue-500 w-full">
+            Content
+            <FoodSearch />
         </div>
     );
 }
