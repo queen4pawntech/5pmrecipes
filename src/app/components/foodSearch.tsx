@@ -9,16 +9,18 @@ export default function FoodSearch() {
 
     const searchFood = async () => {
         try {
-            const response = await axios.get(`https://trackapi.nutritionix.com/v2/search/instant/?query=${searchTerm}`, {
-                headers: {
-                'Content-Type': 'application/json',
-                'x-app-id': process.env.NUTRITIONIX_API_ID || "",
-                'x-app-key': process.env.NUTRITIONIX_API_KEY || ""
-                }
-            });
-            console.log(response.data);
+            const response = await axios.get(
+                `https://trackapi.nutritionix.com/v2/search/instant/?query=${searchTerm}`, 
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-app-id': process.env.NUTRITIONIX_API_ID || "",
+                        'x-app-key': process.env.NUTRITIONIX_API_KEY || ""
+                    }
+                });
+                console.log(response.data);
             } catch (error: any) {
-            console.error("Error fetching data:", error);
+                console.error("Error fetching data:", error);
             }
         };
     
