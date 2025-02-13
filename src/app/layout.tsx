@@ -20,7 +20,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="bg-white">
             <body
-                className={`flex flex-row w-full h-full ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black`}
+                className={`flex flex-row w-full h-full ${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
             >
                 <div>
                     {children}
