@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<NextResponse> {
     if (process.env.NODE_ENV === "production") {
         return NextResponse.json({ message: "Not available in production" }, { status: 403 });
     }
@@ -18,8 +18,13 @@ export async function GET(req: Request) {
             }
         });
         return NextResponse.json(response.data, { status: 200 });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error fetching data:", error);
-        return NextResponse.json({ error: "Error fetching data" }, { status: 500 });
+        
+        const errorMessage = error instanceof Error 
+            ? error.message 
+            : "Unknown error occurred";
+            
+        return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
 };

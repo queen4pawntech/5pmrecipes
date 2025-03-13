@@ -1,5 +1,4 @@
 import { signIn } from "@/auth"
-import { useEffect } from "react"
 
 export default function SignIn() {
 

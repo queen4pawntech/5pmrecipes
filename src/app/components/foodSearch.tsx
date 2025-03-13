@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import axios from "axios";
-
+import { Food } from "../api/models/food";
 export default function FoodSearch() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState<any[]>([]);
+    const [searchResults, setSearchResults] = useState<Food[]>([]);
 
     const searchFood = async () => {
         try {
@@ -14,7 +14,7 @@ export default function FoodSearch() {
             console.log(response.data);
             // Update state with the results received
             setSearchResults([...response.data.branded, ...response.data.common]);
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Error fetching data:", error);
         }
     };
@@ -37,7 +37,7 @@ export default function FoodSearch() {
             <div>
                 {searchResults.length > 0 ? (
                     <ul>
-                        {searchResults.map((result: any, index: number) => (
+                        {searchResults.map((result: Food, index: number) => (
                             <li key={index}>{result.food_name}</li>
                         ))}
                     </ul>

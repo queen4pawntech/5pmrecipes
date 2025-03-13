@@ -1,5 +1,3 @@
-import FoodSearch from "../components/foodSearch";
-
 export default function Root() {
     return (
         <div className="flex flex-col bg-black text-white w-full">
