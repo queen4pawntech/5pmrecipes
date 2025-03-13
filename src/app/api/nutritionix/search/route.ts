@@ -14,7 +14,6 @@ export async function GET(req: Request) {
                 'x-app-key': process.env.NUTRITIONIX_API_KEY || ""
             }
         });
-        console.log(response.data);
         return NextResponse.json(response.data, { status: 200 });
     } catch (error: any) {
         console.error("Error fetching data:", error);

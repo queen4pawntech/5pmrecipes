@@ -14,7 +14,6 @@ export default function FoodSearch() {
             console.log(response.data);
             // Update state with the results received
             setSearchResults([...response.data.branded, ...response.data.common]);
-            console.log("searchResults", searchResults);
         } catch (error: any) {
             console.error("Error fetching data:", error);
         }
