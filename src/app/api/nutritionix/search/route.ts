@@ -2,6 +2,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
+    if (process.env.NODE_ENV === "production") {
+        return NextResponse.json({ message: "Not available in production" }, { status: 403 });
+    }
     const { searchParams } = new URL(req.url);
     const searchTerm = searchParams.get("query");
     try {

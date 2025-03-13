@@ -6,6 +6,9 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: Request) {
+    if (process.env.NODE_ENV === "production") {
+        return NextResponse.json({ message: "Not available in production" }, { status: 403 });
+    }
     const { ingredients, preferences } = await req.json();
     if (!ingredients || ingredients.length === 0) {
         return NextResponse.json({ message: "No ingredients provided" }, { status: 400 });
