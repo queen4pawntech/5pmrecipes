@@ -13,6 +13,7 @@ export default function FoodSearch() {
             const response = await axios.get(`/api/gov/search?query=${searchTerm}`);
             console.log(response.data);
             // Update state with the results received
+            setSearchResults(response.data.foods);
         } catch (error: any) {
             console.error("Error fetching data:", error);
         }
@@ -37,7 +38,7 @@ export default function FoodSearch() {
                 {searchResults.length > 0 ? (
                     <ul>
                         {searchResults.map((result: any, index: number) => (
-                            <li key={index}>{result.food_name}</li>
+                            <li key={index}>{result.description}</li>
                         ))}
                     </ul>
                 ) : (
