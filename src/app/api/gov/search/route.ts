@@ -9,12 +9,10 @@ export async function GET(req: Request) {
     const searchTerm = searchParams.get("query");
     try {
         const response = await axios.get(
-            `https://trackapi.nutritionix.com/v2/search/instant/?query=${searchTerm}`, 
+            `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${process.env.GOV_API_KEY}&query=${searchTerm}`, 
         {
             headers: {
-                'Content-Type': 'application/json',
-                'x-app-id': process.env.NUTRITIONIX_API_ID || "",
-                'x-app-key': process.env.NUTRITIONIX_API_KEY || ""
+                'Content-Type': 'application/json'
             }
         });
         return NextResponse.json(response.data, { status: 200 });

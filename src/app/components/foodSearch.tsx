@@ -10,10 +10,9 @@ export default function FoodSearch() {
     const searchFood = async () => {
         try {
             // Call your internal api/nutritionix/search endpoint with the search term as a query parameter
-            const response = await axios.get(`/api/nutritionix/search?query=${searchTerm}`);
+            const response = await axios.get(`/api/gov/search?query=${searchTerm}`);
             console.log(response.data);
             // Update state with the results received
-            setSearchResults([...response.data.branded, ...response.data.common]);
         } catch (error: any) {
             console.error("Error fetching data:", error);
         }

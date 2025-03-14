@@ -9,6 +9,7 @@ export default function Root() {
             <div>
                 Made by <a className="font-bold underline" href="https://www.linkedin.com/in/aaron-lee-5758b2229/">Aaron</a>!
             </div>
+            <FoodSearch />
         </div>
     );
 }
