@@ -1,0 +1,76 @@
+User inputs ingredients, preferences to generate a recipe
+    - user: information about user
+        - uuid
+        - names
+        - dietary preferences
+        - intolerances
+        - allergies
+        - other preferences
+        
+    - preferences: JSON object of preferences
+        - get preferences from user profile
+            - note that changes to preferences in this step will not affect user profile
+        - fixed fields with structured data
+            - time: Date
+            - cuisine: string
+            - dietaryRestrictions: string[]
+            - intolerances: string[]
+            - allergies: string[]
+            - special instructions: string[]
+            
+    - ingredients: JSON array of ingredients
+        - fixed input of ingredients
+            - how to input? just names and amounts?
+            - gov API gives extra information about ingredients
+        - do we only have these ingredients or do we want to use these ingredients and we have other ingredients?
+
+    - recipe
+        - chef: uuid
+        - name: string
+        - ingredients: JSON array of ingredients
+        - preferences: JSON object of preferences
+        - recipe: string of recipe
+            
+            
+
+GPT-roadmap
+    - choose a model, can probably get away with a mini model
+        - want to use a fine-tuned model
+        - want to choose a model that can later make operations
+    - first, fine tune model on recipe generation
+        - every time a recipe is marked as good? fine-tune on that?
+        - maybe bad to fine-tune on LLM generated recipes?
+        - maybe when user submits a recipe, only use that recipe to fine-tune?
+    - find how to manage conversations for tweaking recipes
+    - look into RAG
+        - do we need it?
+            - don't think so, we can just fine-tune on popular recipes
+            - can implement later if want
+                - ex: users like recipes on platform, can use RAG to know they like those recipes
+                and vice versa for disliked recipes
+        - mostly for knowing which ingredients are good together
+
+
+user journey
+    - user inputs ingredients, preferences
+        - model asks if they have more ingredients if they it wants to add more ingredients
+    - user sees recipe
+    - user can give feedback on recipe
+        - was it good?
+        - was it bad?
+        - was it easy to make?
+        - was it hard to make?
+
+
+frontend
+    - display information about project
+    - display links to my github and linkedin
+    - have place where they can fill out a feedback form
+    - have interface where they can edit their preferences
+    - have interface to create recipe
+        - add ingredients
+        - modify existing preferences
+        - interact with model to generate recipe to their liking
+        - display recipes they have marked
+            - recipes should have an option to edit or delete
+            - sort recipes by restrictions
