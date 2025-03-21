@@ -51,7 +51,7 @@ GPT-roadmap
         - mostly for knowing which ingredients are good together
 
 
-user journey
+recipe generation
     - user inputs ingredients, preferences
         - model asks if they have more ingredients if they it wants to add more ingredients
     - user sees recipe
@@ -61,6 +61,21 @@ user journey
         - was it easy to make?
         - was it hard to make?
 
+meal prep generation
+    - user has preferences
+        - should have similar preferences to user profile, but added preferences adjusted for meal prep
+            - number of people eating
+            - number of days
+            - number of breakfasts, lunches, dinners
+            - number of snacks
+            - macros they want to hit
+    - model generates meal prep
+    - user can link amazon/instacart/uber account
+        - assistant orders the ingredients on amazon
+    - user can link google account
+        - highlight that works best if user's google calender is up to date
+        - assistant schedules times to prepare meals based on user's current schedule
+            - event entries will have instructions on what to do in that time
 
 frontend
     - display information about project
